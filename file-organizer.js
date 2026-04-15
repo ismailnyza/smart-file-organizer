@@ -28,6 +28,10 @@ console.log(chalk.yellow('║   $5  → Remove watermark                        
 console.log(chalk.yellow('║   $10 → Premium features + no watermark               ║'));
 console.log(chalk.yellow('║   $25 → Custom feature request                        ║'));
 console.log(chalk.yellow('║                                                       ║'));
+console.log(chalk.yellow('║   Crypto payments accepted:                           ║'));
+console.log(chalk.yellow('║   Bitcoin:  bc1qwg8e6j35g6j8d9f4h3k7l9p2q1w3e4r5t6y7 ║'));
+console.log(chalk.yellow('║   Ethereum: 0xC9b90EF3273C5c271848Bb02461883C4078EAa5d║'));
+console.log(chalk.yellow('║                                                       ║'));
 console.log(chalk.yellow('╚═══════════════════════════════════════════════════════╝'));
 console.log('');
 
