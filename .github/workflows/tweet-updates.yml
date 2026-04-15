@@ -1,0 +1,71 @@
+name: Tweet Repository Updates
+
+on:
+  schedule:
+    # Run daily at 9 AM UTC
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+  push:
+    branches: [ main ]
+    paths:
+      - 'README.md'
+      - 'package.json'
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Get repository info
+      id: repo
+      run: |
+        echo "REPO_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> $GITHUB_OUTPUT
+        echo "REPO_URL=https://github.com/${{ github.repository }}" >> $GITHUB_OUTPUT
+        echo "STARS=$(curl -s https://api.github.com/repos/${{ github.repository }} | jq -r '.stargazers_count')" >> $GITHUB_OUTPUT
+        
+    - name: Generate tweet content
+      id: generate-tweet
+      run: |
+        # Create different tweet variations
+        DATE=$(date +"%Y-%m-%d")
+        STARS=${{ steps.repo.outputs.STARS }}
+        REPO_NAME=${{ steps.repo.outputs.REPO_NAME }}
+        REPO_URL=${{ steps.repo.outputs.REPO_URL }}
+        
+        # Array of tweet templates
+        TWEETS=(
+          "🚀 ${REPO_NAME} - Free open-source CLI tool to automatically organize files by type, date, or custom rules. ${REPO_URL} #opensource #developer #productivity"
+          "📁 Tired of messy folders? ${REPO_NAME} automatically organizes your files. ${STARS} stars and growing! ${REPO_URL} #cli #github #javascript"
+          "✨ ${REPO_NAME} update: Now with 50+ file types recognized, date-based organization, and custom JSON rules. ${REPO_URL} #tools #automation"
+          "💻 Developer tool spotlight: ${REPO_NAME} - Organize files from command line. Free, open source, MIT licensed. ${REPO_URL} #devtools #opensource"
+          "📈 ${REPO_NAME} has ${STARS} GitHub stars! Try it: curl -L ${REPO_URL}/archive/refs/heads/main.zip -o file-organizer.zip ${REPO_URL} #github #productivity"
+        )
+        
+        # Pick random tweet
+        RANDOM_INDEX=$(( RANDOM % ${#TWEETS[@]} ))
+        TWEET="${TWEETS[$RANDOM_INDEX]}"
+        
+        echo "TWEET=${TWEET}" >> $GITHUB_OUTPUT
+        echo "Generated tweet: ${TWEET}"
+        
+    - name: Debug output
+      run: |
+        echo "Tweet would be: ${{ steps.generate-tweet.outputs.TWEET }}"
+        echo "Note: Actual Twitter posting requires API keys or browser automation"
+        echo "This workflow prepares the content - manual posting or integration needed"
+        
+    - name: Create tweet file
+      run: |
+        echo "${{ steps.generate-tweet.outputs.TWEET }}" > tweet-to-post.txt
+        echo "Tweet saved to tweet-to-post.txt"
+        
+    - name: Upload tweet as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-tweet
+        path: tweet-to-post.txt
+        retention-days: 1

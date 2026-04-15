@@ -1,0 +1,87 @@
+name: Weekly Community Update
+
+on:
+  schedule:
+    # Run every Monday at 10 AM UTC
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+jobs:
+  community-update:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+      
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Get repository stats
+      id: stats
+      run: |
+        # Get stars, forks, issues
+        RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}")
+        
+        STARS=$(echo "$RESPONSE" | jq -r '.stargazers_count')
+        FORKS=$(echo "$RESPONSE" | jq -r '.forks_count')
+        OPEN_ISSUES=$(echo "$RESPONSE" | jq -r '.open_issues_count')
+        
+        # Get recent commits
+        COMMITS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/commits?per_page=5" | \
+          jq -r '.[] | "- \(.commit.message | split("\n")[0])"')
+        
+        echo "STARS=${STARS}" >> $GITHUB_OUTPUT
+        echo "FORKS=${FORKS}" >> $GITHUB_OUTPUT
+        echo "OPEN_ISSUES=${OPEN_ISSUES}" >> $GITHUB_OUTPUT
+        echo "COMMITS<<EOF" >> $GITHUB_OUTPUT
+        echo "$COMMITS" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
+    - name: Create community update issue
+      run: |
+        DATE=$(date +"%Y-%m-%d")
+        TITLE="📊 Community Update - ${DATE}"
+        
+        BODY="## 🚀 Smart File Organizer CLI - Weekly Update
+        
+        ### 📈 Stats this week
+        - **Stars**: ${{ steps.stats.outputs.STARS }} (+X since last week)
+        - **Forks**: ${{ steps.stats.outputs.FORKS }} (+X since last week)
+        - **Open Issues**: ${{ steps.stats.outputs.OPEN_ISSUES }}
+        
+        ### 🛠 Recent Development
+        ${{ steps.stats.outputs.COMMITS }}
+        
+        ### 💬 Community Highlights
+        - [Add your community highlights here]
+        - [Mention interesting issues or discussions]
+        - [Share user stories]
+        
+        ### 🎯 What's Next
+        - [Upcoming features]
+        - [Help wanted areas]
+        - [Community requests]
+        
+        ### 🤝 Get Involved
+        1. **Try the tool**: \`curl -L https://github.com/${{ github.repository }}/archive/refs/heads/main.zip -o file-organizer.zip\`
+        2. **Report bugs**: Open an issue
+        3. **Request features**: Comment below
+        4. **Contribute**: Submit a PR
+        5. **Support**: Optional donations via website
+        
+        ### 🔗 Links
+        - GitHub: https://github.com/${{ github.repository }}
+        - Website: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        
+        ---
+        
+        *This is an automated weekly update. Please comment with your thoughts, feedback, or questions!*"
+        
+        # Create issue using GitHub CLI
+        gh issue create --title "$TITLE" --body "$BODY" --label "community-update"
+        
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
