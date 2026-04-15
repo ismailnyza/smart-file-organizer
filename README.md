@@ -1,6 +1,6 @@
-# Smart File Organizer CLI
+# 🚀 Smart File Organizer CLI
 
-**Price: $2.99** | **Category: Developer Tools** | **License: Personal Use**
+**Free Open Source Tool** | **Category: Developer Tools** | **License: MIT**
 
 ## 🚀 What It Does
 Automatically organizes your messy downloads, desktop, or project folders by:
@@ -19,71 +19,82 @@ Automatically organizes your messy downloads, desktop, or project folders by:
 
 ## 📦 Installation
 ```bash
-# Download and install
-curl -L https://your-download-link.com/file-organizer | bash
+# Quick install
+curl -L https://github.com/ismailnyza/smart-file-organizer/archive/refs/heads/main.zip -o file-organizer.zip
+unzip file-organizer.zip
+cd smart-file-organizer-main
+chmod +x install.sh
+./install.sh
 
-# Or via npm
-npm install -g smart-file-organizer
+# Or clone the repository
+git clone https://github.com/ismailnyza/smart-file-organizer.git
+cd smart-file-organizer
+npm install
 ```
 
 ## 🎯 Quick Start
 ```bash
-# Organize your downloads folder
-file-organizer ~/Downloads --strategy=type
+# Organize files in current directory by type
+node file-organizer.js --type
 
-# Organize by date (year/month)
-file-organizer ~/Desktop --strategy=date
+# Organize by date (creates YYYY/MM/DD folders)
+node file-organizer.js --date
 
-# Dry run (see what would happen)
-file-organizer ~/Projects --dry-run
+# Preview changes without moving files
+node file-organizer.js --type --dry-run
 
-# Custom rules
-file-organizer . --config=./organizer-rules.yaml
+# Use custom configuration
+node file-organizer.js --config my-rules.json
 ```
 
-## 🔧 Example Config
-```yaml
-rules:
-  - pattern: "*.{js,ts,jsx,tsx}"
-    destination: "code/javascript"
-    
-  - pattern: "*.{py}"
-    destination: "code/python"
-    
-  - pattern: "*.{jpg,png,gif,svg}"
-    destination: "media/images"
-    
-  - pattern: "*.{pdf,doc,docx}"
-    destination: "documents"
-    
-  - pattern: "*.{zip,tar,gz}"
-    destination: "archives"
+## ⚙️ Configuration
+Create `organizer-rules.json`:
+```json
+{
+  "rules": [
+    {
+      "pattern": "*.{jpg,png,gif,webp}",
+      "target": "Images/{year}/{month}"
+    },
+    {
+      "pattern": "*.{pdf,doc,docx,txt}",
+      "target": "Documents/{category}"
+    },
+    {
+      "pattern": "*.{js,ts,py,go}",
+      "target": "Code/{project-name}"
+    }
+  ]
+}
 ```
 
-## 💰 Why Buy This?
-- **Saves hours** of manual file organization
-- **Prevents data loss** with safe operations
-- **Customizable** for your workflow
-- **One-time payment**, free updates
-- **Money-back guarantee** if not satisfied
+## 💖 Support Development
+This tool is **free and open source**. If it saves you time, consider supporting future development:
 
-## 🛒 Purchase & Download
-1. **Buy now** for $2.99 via Gumroad/Stripe
-2. **Instant download** link emailed
-3. **Run installer** (one command)
-4. **Start organizing** immediately
+- **PayPal**: paypal.me/ismailnyza
+- **Bitcoin**: bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- **Ethereum**: 0xC9b90EF3273C5c271848Bb02461883C4078EAa5d
 
-## 📞 Support
-- Email: support@yourdomain.com
-- GitHub Issues: Bug reports & feature requests
-- Discord: Community support
+**Why support?** Your contribution helps:
+- Add new features
+- Fix bugs faster
+- Create more free tools
+- Support open source development
 
-## ❤️ Support Development
-If you find this tool useful, consider making a crypto donation to support ongoing development. Donate via Ethereum: [Donation Page](https://ismailnyza.github.io/mythos-experiment/).
+## 🤝 Contributing
+Found a bug? Have a feature request?
+1. Open an issue on GitHub
+2. Fork the repository
+3. Submit a pull request
 
-## 🔒 License
-Personal use license. Commercial license available for $9.99.
+## 📄 License
+MIT License - Free for personal and commercial use.
+
+## 🔗 Links
+- **GitHub**: https://github.com/ismailnyza/smart-file-organizer
+- **Website**: https://ismailnyza.github.io/smart-file-organizer/
+- **Issues**: https://github.com/ismailnyza/smart-file-organizer/issues
 
 ---
 
-**30-day money-back guarantee** • **Free updates for 1 year** • **Used by 500+ developers**
+*Made with ❤️ for developers who hate messy folders.*
