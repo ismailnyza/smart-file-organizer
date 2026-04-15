@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4f46e5;
+        }
+        .stats {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 6px;
+            background: #4f46e5;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #4338ca;
+        }
+        .premium-section {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #fbbf24;
+            text-align: center;
+        }
+        .watermark {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 style="margin: 0; color: #4f46e5;">Tab Manager Pro</h2>
+        <p style="margin: 5px 0; color: #64748b; font-size: 0.9em;">Organize your tabs efficiently</p>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-number" id="tabCount">0</div>
+        <div style="color: #64748b;">tabs open</div>
+    </div>
+    
+    <button class="button" id="groupByDomain">🌐 Group by Domain</button>
+    <button class="button" id="closeDuplicates">🗑️ Close Duplicates</button>
+    <button class="button" id="saveSession">💾 Save Session</button>
+    <button class="button" id="loadSession">📂 Load Session</button>
+    
+    <div class="premium-section">
+        <h3 style="margin: 0 0 10px 0; color: #78350f;">🚀 Upgrade to Premium</h3>
+        <p style="margin: 5px 0; font-size: 0.9em;">Unlock advanced features:</p>
+        <ul style="text-align: left; font-size: 0.8em; margin: 10px 0;">
+            <li>Auto-tab grouping</li>
+            <li>Session scheduling</li>
+            <li>Tab analytics</li>
+            <li>No watermark</li>
+        </ul>
+        <button class="button" style="background: #fbbf24; color: #78350f;" id="upgradeButton">✨ Upgrade for $5</button>
+    </div>
+    
+    <div class="watermark" id="watermark">
+        FREE • <a href="#" style="color: #fbbf24; text-decoration: none;" id="removeWatermark">Remove</a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
