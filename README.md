@@ -71,8 +71,14 @@ Create `organizer-rules.json`:
 ## 💖 Support Development
 This tool is **free and open source**. If it saves you time, consider supporting future development:
 
+### 🚀 **Instant Support via PayPal**
+[![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=YOUR_BUTTON_ID_HERE)
+
+**Click the button above to support instantly!**
+
+### Alternative Methods:
 - **PayPal**: paypal.me/ismailnyza
-- **Bitcoin**: bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- **Bitcoin**: bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  
 - **Ethereum**: 0xC9b90EF3273C5c271848Bb02461883C4078EAa5d
 
 **Why support?** Your contribution helps:
@@ -80,6 +86,12 @@ This tool is **free and open source**. If it saves you time, consider supporting
 - Fix bugs faster
 - Create more free tools
 - Support open source development
+
+### 🎯 **Support Tiers:**
+- **$5**: Gets you a thank you note and priority support
+- **$10**: Early access to new features
+- **$25**: Custom feature requests
+- **$50**: Your name in the README as a sponsor
 
 ## 🤝 Contributing
 Found a bug? Have a feature request?
