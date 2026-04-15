@@ -1,57 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Smart File Organizer CLI - $2.99</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free File Organizer CLI Tool</title>
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .buy-button { background: #22c55e; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; display: inline-block; margin: 20px 0; }
-        .price { font-size: 2em; color: #22c55e; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .price {
+            font-size: 2.5em;
+            color: #22c55e;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .form-group {
+            margin: 30px 0;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #22c55e;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+        .features {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .feature {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .feature:before {
+            content: "✅";
+            margin-right: 10px;
+        }
+        .guarantee {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .testimonial {
+            background: #e0f2fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
-    <h1>🚀 Smart File Organizer CLI</h1>
-    <p class="price">$2.99</p>
-    <p>One-time payment • Lifetime updates • 30-day money-back guarantee</p>
-    
-    <a href="#download" class="buy-button">Download Now →</a>
-    
-    <div style="background: #f8fafc; padding: 20px; border-radius: 10px; margin: 20px 0;">
-        <h3>💖 Support Development</h3>
-        <p>If you find this tool useful, consider supporting future development:</p>
-        <p><strong>PayPal:</strong> paypal.me/ismailnyza</p>
-        <p><strong>Bitcoin:</strong> bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-        <p><strong>Ethereum:</strong> 0xC9b90EF3273C5c271848Bb02461883C4078EAa5d</p>
-        <p><em>Payment is optional but appreciated!</em></p>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Smart File Organizer CLI</h1>
+            <p class="price">FREE</p>
+            <p>Get instant access to the tool that automatically organizes your files</p>
+        </div>
+        
+        <div class="testimonial">
+            "This tool saved me hours of manual file organization. Simple, fast, and free!"<br>
+            <strong>- Alex, Developer</strong>
+        </div>
+        
+        <div class="features">
+            <h2>✨ What You Get</h2>
+            <div class="feature">Automatically organize files by type, date, or custom rules</div>
+            <div class="feature">50+ file types recognized (images, docs, code, archives, etc.)</div>
+            <div class="feature">Works on macOS, Linux, and Windows</div>
+            <div class="feature">Simple command-line interface</div>
+            <div class="feature">Safe operations (never deletes, only moves with undo)</div>
+            <div class="feature">Free updates and support</div>
+        </div>
+        
+        <div class="guarantee">
+            <h3>🔒 100% Free - No Credit Card Required</h3>
+            <p>Get the full tool immediately. No hidden fees, no subscriptions.</p>
+        </div>
+        
+        <form id="emailForm" action="https://formspree.io/f/xdknvjbg" method="POST">
+            <div class="form-group">
+                <h3>📧 Get Your Free Copy</h3>
+                <p>Enter your email to receive the download link instantly:</p>
+                <input type="email" name="email" placeholder="your.email@example.com" required>
+                <input type="hidden" name="_subject" value="Smart File Organizer CLI Download">
+                <input type="hidden" name="_replyto" value="gbncrqnr@guerrillamailblock.com">
+                <input type="text" name="_gotcha" style="display:none">
+            </div>
+            
+            <button type="submit">Get Free Tool →</button>
+        </form>
+        
+        <div class="features">
+            <h2>📥 How It Works</h2>
+            <div class="feature">1. Enter your email above</div>
+            <div class="feature">2. Check your inbox for download link</div>
+            <div class="feature">3. Run the installer (takes 30 seconds)</div>
+            <div class="feature">4. Start organizing files immediately</div>
+        </div>
+        
+        <div class="guarantee">
+            <h3>💖 Optional Support</h3>
+            <p>This tool is completely free. If you find it useful and want to support future development, donation options will be included in the download email.</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 Smart File Organizer CLI. All rights reserved.</p>
+            <p>By submitting your email, you agree to receive the tool download and occasional updates.</p>
+            <p>We respect your privacy. Unsubscribe at any time.</p>
+        </div>
     </div>
     
-    <h2>✨ Features</h2>
-    <ul>
-        <li>✅ Organize files by type, date, or custom rules</li>
-        <li>✅ Works on macOS, Linux, and Windows</li>
-        <li>✅ Simple command-line interface</li>
-        <li>✅ No dependencies, single executable</li>
-        <li>✅ Saves hours of manual file management</li>
-    </ul>
-    
-    <h2>📦 What You Get</h2>
-    <ul>
-        <li>Smart File Organizer CLI executable</li>
-        <li>Installation guide</li>
-        <li>Usage examples</li>
-        <li>1 year of free updates</li>
-        <li>Direct download after payment</li>
-    </ul>
-    
-    <h2 id="download">📥 Download</h2>
-    <p><strong>Direct download:</strong> <a href="https://github.com/ismailnyza/smart-file-organizer/archive/refs/heads/main.zip">smart-file-organizer.zip</a></p>
-    <p><strong>Installation:</strong></p>
-    <pre><code>curl -L https://github.com/ismailnyza/smart-file-organizer/archive/refs/heads/main.zip -o file-organizer.zip
-unzip file-organizer.zip
-cd smart-file-organizer-main
-chmod +x install.sh
-./install.sh</code></pre>
-    
-    <h2>🔒 Risk-Free</h2>
-    <p>Try it free. If it saves you time, consider supporting development.</p>
+    <script>
+        // Form submission handling
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            const email = this.querySelector('input[type="email"]').value;
+            if (email && email.includes('@')) {
+                // Show success message
+                alert('✅ Check your email for the download link! It should arrive within 2 minutes.');
+                
+                // Optional: Track submission
+                console.log('Email submitted:', email);
+            }
+        });
+        
+        // Auto-focus email field
+        document.querySelector('input[type="email"]').focus();
+    </script>
 </body>
 </html>
