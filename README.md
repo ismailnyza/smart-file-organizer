@@ -75,6 +75,8 @@ Create `organizer-rules.json`:
 
 📖 **[Get the eBook Now - $7 →](https://ismailnyza.github.io/smart-file-organizer/ebook.html)**
 
+**💰 Payment Proof:** [See $5 payment received](https://ismailnyza.github.io/smart-file-organizer/payment-proof.html) - First sale made!
+
 **What's included:**
 - 50+ pages of actionable command line tutorials
 - 4 production-ready bonus scripts (MIT licensed)
